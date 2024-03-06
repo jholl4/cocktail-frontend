@@ -1,0 +1,22 @@
+section{
+    background-color: darkcyan;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 0px 6px 6px 0px;
+    width: 300px;
+    display: inline-block;
+}
+
+img{
+    float: left;
+    margin-right: 16px;
+    width: 100px;
+}
+
+p{
+    margin-bottom: 8px;
+}
+
+button{
+    float: right;
+}

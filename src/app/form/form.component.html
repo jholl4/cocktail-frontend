@@ -1,0 +1,26 @@
+<h2>MOCKTAIL SUBMISSION FORM</h2>
+
+<form>
+    <label for="strDrink">Drink name</label>
+    <input [(ngModel)]="strDrink" id="strDrink" name="strDrink" type="text">
+
+    <label for="strGlass">Drink glass</label>
+    <input [(ngModel)]="strGlass" id="strGlass" name="strGlass" type="text">
+
+    <label for="strAlcoholic">Drink category</label>
+    <input [(ngModel)]="strAlcoholic" id="strAlcoholic" name="strAlcoholic" type="text">
+
+    <label for="strDrinkThumb">Drink image URL</label>
+    <input [(ngModel)]="strDrinkThumb" id="strDrinkThumb" name="strDrinkThumb" type="text">
+
+    <button (click)="populateCocktailComponent()" type="submit" [disabled]="
+    strDrink === ''
+    || strGlass === ''
+    || strAlcoholic === ''
+    || strDrinkThumb === ''">SUBMIT</button>
+</form>
+
+<app-cocktail *ngIf="cocktail.strDrink !== ''
+                    && cocktail.strGlass !== ''
+                    && cocktail.strAlcoholic !== ''
+                    && cocktail.strDrinkThumb !== ''" [cocktail]="cocktail"></app-cocktail>

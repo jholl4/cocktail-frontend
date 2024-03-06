@@ -1,0 +1,42 @@
+table{
+    border-collapse: collapse;
+}
+
+td img{
+    width: 100px;
+    height: 100px;
+}
+
+th, td{
+    text-align: left;
+    padding-right: 24px;
+}
+
+td{
+    padding: 6px 24px 2px 6px;
+}
+
+th{
+    padding-bottom: 8px;
+}
+
+.even{
+    background-color: lightgray;
+}
+
+.odd{
+    background-color: darkgrey;
+}
+
+form {
+    margin-bottom: 24px;
+}
+
+form input {
+    width: 32px;
+    margin-right: 16px;
+}
+
+form label {
+    margin-right: 8px;
+}

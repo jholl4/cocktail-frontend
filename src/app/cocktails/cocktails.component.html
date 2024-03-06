@@ -1,0 +1,59 @@
+<main>
+    <h2>COCKTAILS BY FIRST LETTER <button (click)="viewToggle()">Toggle view</button></h2>
+    <!-- <p>5th Cocktail's Name: {{cocktails[4].strDrink}}</p> -->
+
+    <form>
+        <label for="searchLetter">Search for cocktails starting with: </label>
+        <input [(ngModel)]="searchLetter" id="searchLetter" name="searchLetter" type="text">
+        <button (click)="this.updateLetter()" type="submit">Submit</button>
+        <button (click)="random()" type="submit">Surprise me!</button>
+    </form>
+
+
+    <ng-container *ngIf="isTable">
+
+        <table>
+            <thead>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Glass</th>
+                <th>Category</th>
+                <th>Remove</th>
+                <th>Favorite</th>
+            </thead>
+    
+            <!-- using ng-container to loop through cocktails this is a semantic-free, style-free container -->
+            
+            <tbody>
+                
+                <ng-container *ngFor="let cocktail of cocktails; let i = index; let e = even">
+                    <!-- <tr [ngClass]="{
+                        'even': i % 2 === 0,
+                        'odd': i % 2 !== 0
+                    }"> -->
+                    <tr [ngClass]="{
+                        'even': e,
+                        'odd': !e
+                    }">
+                        <td><img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink"></td>
+                        <td>{{ cocktail.strDrink }}</td>
+                        <td>{{ cocktail.strGlass }}</td>
+                        <td>{{ cocktail.strAlcoholic }}</td>
+                        <td><button (click)="removeCocktailTable(cocktail.idDrink)">X</button></td>
+                        <td><button (click)="updateFavorite(cocktail.strDrink)">Fave it!</button></td>
+                    </tr>
+                </ng-container>
+                
+            </tbody>
+        </table>
+    </ng-container>
+
+    <ng-container *ngIf="!isTable">
+        
+        <ng-container *ngFor="let cocktail of cocktails; let i = index">
+            <app-cocktail [cocktail]="cocktail" (deleteCocktailEvent)="removeCocktailGrid($event, i)"></app-cocktail>
+        </ng-container>
+
+    </ng-container>
+
+</main>

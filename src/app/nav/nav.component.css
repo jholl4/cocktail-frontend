@@ -1,0 +1,19 @@
+nav {
+    background-color: black;
+    text-align: center;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+
+div {
+    color: antiquewhite;
+    display: inline-block;
+    padding: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+div:hover {
+    background-color: rgb(78, 78, 78);
+}

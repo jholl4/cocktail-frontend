@@ -1,0 +1,9 @@
+footer{
+    background-color: darkgray;
+    padding: .75em;
+    text-align: center;
+    color: beige;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    font-style: italic;
+}

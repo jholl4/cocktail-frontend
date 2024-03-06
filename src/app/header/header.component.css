@@ -1,0 +1,19 @@
+header{
+    background-color: lightgray;
+    text-align: center;
+    font-size: 32px;
+    padding: 1em;
+}
+
+aside {
+    float: right;
+    font-size: 16px;
+    font-weight: bold;
+    width: 150px;
+    background-color: cornflowerblue;
+    border-radius: 15px;
+}
+
+aside span {
+    font-weight: normal;
+}
