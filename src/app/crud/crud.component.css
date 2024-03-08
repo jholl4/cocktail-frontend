@@ -1,0 +1,9 @@
+label, input, button {
+    display: block;
+    margin-bottom: 8px;
+
+}
+
+span{
+    color: red;
+}

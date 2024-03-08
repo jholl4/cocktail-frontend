@@ -1,0 +1,48 @@
+<h2>REACTIVE CRUD FORMS</h2>
+
+<!-- this form is attached to our getFormGroup -->
+<form [formGroup]="getFormGroup">
+    <h4>Get a single User</h4>
+    <label for="getid">
+        Enter User ID
+        <span *ngIf="getId?.invalid && (getId?.touched || getId?.dirty)">*required</span>
+    </label>
+    <input id="getid" formControlName="getid" type="text">
+    <!-- button is disabled if any form field doesn't meet all validators -->
+    <button [disabled]="getFormGroup.invalid" type="submit" (click)="getUser(getId?.value!)">SUBMIT</button>
+
+    <img src="{{user.avatar}}" alt="avatar">
+    <p>{{ user.first_name }}</p>
+    <p>{{ user.last_name }}</p>
+    <p>{{ user.id }}</p>
+    <p>{{ user.email }}</p>
+</form>
+
+<form [formGroup]="postFormGroup">
+    <h4>Create a new user</h4>
+    <label for="postName">
+        Enter Name
+        <span *ngIf="postName?.invalid && (postName?.touched || postName?.dirty)">
+            <span *ngIf="postName!.errors?.['required']">*required</span>
+            <span *ngIf="postName!.errors?.['minlength']">*1-character minimum</span>
+            <span *ngIf="postName!.errors?.['maxlength']">*20-character maximum</span>
+        </span>
+    </label>
+    <input id="postName" formControlName="postName" type="text">
+
+    <label for="postJob">
+        Enter Job
+        <span *ngIf="postJob?.invalid && (postJob?.touched || postJob?.dirty)">
+            <span *ngIf="postJob!.errors?.['required']">*required</span>
+            <span *ngIf="postJob!.errors?.['minlength']">*5-character minimum</span>
+            <span *ngIf="postJob!.errors?.['maxlength']">*25-character maximum</span>
+        </span>
+    </label>
+    <input id="postJob" formControlName="postJob" type="text">
+    <button (click)="createUser({name: postName?.value!, job: postJob?.value!})" type="submit" [disabled]="postFormGroup.invalid">SUBMIT</button>
+</form>
+
+<p>{{ postUser.id }}</p>
+<p>{{ postUser.name }}</p>
+<p>{{ postUser.job }}</p>
+<p>{{ postUser.createdAt }}</p>
